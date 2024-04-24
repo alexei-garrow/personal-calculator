@@ -36,4 +36,4 @@
 
 //Math.abs should be super useful
 
-//This outline is like one giant function? We could make smaller ones.
+//This outline is like one giant function? We could make smaller ones..
