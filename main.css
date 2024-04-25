@@ -1,0 +1,61 @@
+/* A caculator, all the buttons. Think about style, and presentation.*/
+/* Would be worth studying the one they've got https://codepen.io/freeCodeCamp/pen/EPNZYW */
+
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #5d95d4;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-color: black;
+  border-style: solid;
+  background-color: rgb(228, 114, 20);
+  padding: 5%;
+  /*margin: 10%; */
+  border-radius: 15%;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-color: rgb(230, 230, 24);
+  border-style: inset;
+  width: 100%;
+  margin: 10%;
+}
+
+.row1,
+.row2,
+.row3,
+.row4,
+.row5 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-color: rgb(41, 205, 247);
+  border-style: outset;
+}
+
+h4 {
+  font-family: Orbitron;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.main2 {
+}
+
+.main3 {
+}
