@@ -12,7 +12,7 @@
 //We are making buttons on the calculator.
 //So the next one is the CE button //clear last entry. Take you back one.
 
-//eval() method? Can add a string together?!?
+//eval() method? Can add a string together?!? Seems to be something that will stop being a thing soon.
 
 //They then change the multiply symbol to work with the eval method?>
 
@@ -224,4 +224,160 @@ evaluates arithmetic operations based on input stored in the 'entries' variable 
 
 
 
+
+IDEAS????
+Joel: want to have the buttons of calculator react to user input (clicks) and pass their values to the "display", then have the '=' button act as catalyst
+for mathematical operations to be calculated. Have the AC button act as a reset, which wil discard all input. Use CE to regress "one stage" to previous state of user input.#answer
+
+1. ensure that buttons are fully functional via use of Jscript functions.
+2. have variables declared globally to store entries [], to store calculated totals = 0 & to store temporary collections of inputs 
+  (the values to be stored during mathematical calculations as a string, allows use if CE etc. (? is that correct) )
+3. Create functions to handle these variables and apply mathematical methods to them when user uses '='  sign and then return requested output to 'screen' 
+4. since the values will be calculated through the temp string, will need a function to deconstruct the string into its parts.
+5. will then need function to calculate (in correct order) these deconstructed parts of string into meaningful & correct output array [?] (would we use the .map function?)
+
+Button functionality:
+
+function buttonClick takes a value:
+ if val is a number or a decimal point:
+ if (!NaN)
+ If val is !NaN (a number) or val is a '.' decimal point:
+ Add val to the end of Temp '' 
+ Update the display with value of temp ''
+
+
+
+create a function to go through the temp string and evaluate its seprate factors, either numerals or operators, then correctly handle the matematics according to the operators identified?
+
+*/
+let entries = []
+let total = 0
+let temp = ''
+
+function handleVariables(value) {
+  if (value === '=') {
+    entries.push(temp)
+    total = evaluateExpression(entries) + displayResult(total)
+    entries = []
+    temp = ''
+  } else {
+    temp += value //(displayInput temp)
+  }
+  displayInput(temp)
+}
+
+document.querySelectorAll('button').forEach((button) => {
+  button.addEventListener('click', function () {
+    handleVariables(this.value)
+  })
+})
+
+function displayInput(input) {
+  document.getElementById('screen').value = input
+}
+
+function displayResult() {
+  document.getElementById('screen').value = total
+}
+
+const clearButton = document.getElementById('clearButton') //Helped by ai
+clearButton.addEventListener('click', clearInput)
+
+function clearInput() {
+  //Helped by ai
+  // Reset any relevant variables (e.g., temp, entries, total)
+  temp = ''
+  entries = []
+  total = 0
+  displayInput('') // Clear the input display
+}
+
+/*
+function evaluateExpression(entries) {
+  // Implement the calculation logic here
+  math.add(x, y) //: Add two numbers.
+  Math.subtract(x, y) //: Subtract y from x.
+  Math.multiply(x, y) //: Multiply two numbers.
+  Math.divide(x, y) //: Divide x by y.
+  Math.sqrt(x)
+
+  // Return the calculated result
+  //return
+}
+
+/*function clear() {
+  let ac = document.getElementById('ac')
+  let clear = value || total
+  ac = clear
+  if (value || total != '') {
+    return 0
+  } else {
+    return 0
+  }
+}
+*/
+
+//clear()
+
+/*function clear() {
+  if (value === 'AC') {
+    entries = []
+    temp = ''
+    total = 0
+  }
+}
+*/
+
+/*function clear() {
+  document.getElementById('screen').reset()
+}
+
+clear()
+*/
+//Typing number state.
+//When you move into operator state. Accumlator or previous result
+//Next state = ( maybe clear or AC)
+
+//state importance!
+
+//Previous or left hand side. RHS right hand side, you're always typing into rhs.
+//Switch case
+
+//const buttons = document.querySelectorAll('button')
+
+/*function interface(button) {
+  let button = buttons
+  buttons = interface
+  if (id === 'nine') {
+    return '9'
+  } else if (id === 'eight') {
+    return '8'
+  } else if (id === 'seven') {
+    return '7'
+  } else if (id === 'six') {
+    return '6'
+  } else if (id === 'five') {
+    return '5'
+  } else if (id === 'four') {
+    return '4'
+  } else if (id === 'three') {
+    return '3'
+  } else if (id === 'two') {
+    return '2'
+  } else if (id === 'one') {
+    return '1'
+  } else id === 'zero'
+  {
+    return '0'
+  }
+}
+
+/*  
+const seven = document.getElementsById('seven')
+function sevenClick () {
+  return = seven + '7'
+}
+
+element.addEventListener('click', seven , false); //The false seems to link to listener reacts bubbling :https://www.w3.org/TR/DOM-Level-3-Events/#event-flow
+//https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick
 */

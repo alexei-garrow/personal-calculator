@@ -5,41 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </head>
   <body>
     <div class="container">
       <h4>Joel & Alexei Calc</h4>
       <input class="screen" id="screen" readonly />
       <div class="row1">
-        <button id="ac">AC</button>
-        <button id="sqrt">√</button>
-        <button id="division">/</button>
-        <button id="percentage">%</button>
+        <button id="clearButton" onclick="clearInput()">AC</button>
+        <!-- <button value="AC" id="ac">AC</button> -->
+        <!-- <input type="button" value="AC" onClick="clear()" /> -->
+        <button value="√" id="sqrt">√</button>
+        <button value="/" id="division">/</button>
+        <button value="%" id="percentage">%</button>
       </div>
       <div class="row2">
-        <button id="seven">7</button>
-        <button id="eight">8</button>
-        <button id="nine">9</button>
-        <button id="multiply">*</button>
+        <button value="7" id="seven">7</button>
+        <button value="8" id="eight">8</button>
+        <button value="9" id="nine">9</button>
+        <button value="*" id="multiply">*</button>
       </div>
       <div class="row3">
-        <button id="four">4</button>
-        <button id="five">5</button>
-        <button id="six">6</button>
-        <button id="subtract">-</button>
+        <button value="4" id="four">4</button>
+        <button value="5" id="five">5</button>
+        <button value="6" id="six">6</button>
+        <button value="-" id="subtract">-</button>
       </div>
       <div class="row4">
-        <button id="one">1</button>
-        <button id="two">2</button>
-        <button id="three">3</button>
-        <button id="add">+</button>
+        <button value="1" id="one">1</button>
+        <button value="2" id="two">2</button>
+        <button value="3" id="three">3</button>
+        <button value="+" id="add">+</button>
       </div>
       <div class="row5">
-        <button id="zero">0</button>
-        <button id="decimal">.</button>
-        <button id="sign">+/-</button>
-        <button id="equals">=</button>
+        <button value="0" id="zero">0</button>
+        <button value="." id="decimal">.</button>
+        <button value="+/-" id="sign">+/-</button>
+        <button value="=" id="equals">=</button>
       </div>
     </div>
   </body>
