@@ -26,3 +26,5 @@ function solve() {
 }
 
 //try and do the typed letter function!
+
+//looking at joel's one, what about a cache that shows what you've calculated?
