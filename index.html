@@ -3,94 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <title>Calculator Bruv</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="main.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <h4>Joel & Alexei Calc</h4>
-      <input class="screen" id="screen" readonly />
-      <div class="row1">
-        <button id="clearButton" onclick="clearInput()">AC</button>
-        <!-- <button value="AC" id="ac">AC</button> -->
-        <!-- <input type="button" value="AC" onClick="clear()" /> -->
-        <button value="√" id="sqrt">√</button>
-        <button value="/" id="division">/</button>
-        <button value="%" id="percentage">%</button>
-      </div>
-      <div class="row2">
-        <button value="7" id="seven">7</button>
-        <button value="8" id="eight">8</button>
-        <button value="9" id="nine">9</button>
-        <button value="*" id="multiply">*</button>
-      </div>
-      <div class="row3">
-        <button value="4" id="four">4</button>
-        <button value="5" id="five">5</button>
-        <button value="6" id="six">6</button>
-        <button value="-" id="subtract">-</button>
-      </div>
-      <div class="row4">
-        <button value="1" id="one">1</button>
-        <button value="2" id="two">2</button>
-        <button value="3" id="three">3</button>
-        <button value="+" id="add">+</button>
-      </div>
-      <div class="row5">
-        <button value="0" id="zero">0</button>
-        <button value="." id="decimal">.</button>
-        <button value="+/-" id="sign">+/-</button>
-        <button value="=" id="equals">=</button>
-      </div>
+    <div classname="main">
+      <table id="calcu">
+        <tr>
+          <td colspan="3"><input type="text" id="result" /></td>
+          <td><input type="button" value="AC" onclick="clr()" /></td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="7"
+              onclick="dis('7')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="8"
+              onclick="dis('8')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="9"
+              onclick="dis('9')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="/"
+              onclick="dis('/')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="4"
+              onclick="dis('4')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="5"
+              onclick="dis('5')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="6"
+              onclick="dis('6')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="*"
+              onclick="dis('*')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="1"
+              onclick="dis('1')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="2"
+              onclick="dis('2')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="3"
+              onclick="dis('3')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="-"
+              onclick="dis('-')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="button"
+              value="0"
+              onclick="dis('0')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="."
+              onclick="dis('.')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+          <td><input type="button" value="=" onclick="solve()" /></td>
+          <td>
+            <input
+              type="button"
+              value="+"
+              onclick="dis('+')"
+              onkeydown="myFunction(event)"
+            />
+          </td>
+        </tr>
+      </table>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
-
-<!-- 
-Title Calculator
-
-It's written in pug? Node.js?  Pug is dead?
-
-.calculator
-  p#title FreeCodeCamp
-  p#tagline electronic calculator
-  input(type='text' disabled)#answer
-  .row
-    button.ctrl AC
-    button.ctrl CE
-    button %
-    button ÷
-  .row
-    button 7
-    button 8
-    button 9
-    button x
-  .row
-    button 4
-    button 5
-    button 6
-    button -
-  .row
-    button 1
-    button 2
-    button 3
-    button.tall +
-  .row
-    button 0
-    button .
-    button =
-
-  Interesting.. 
-
-
-Need buttons for the calculator
-
-Need an input
-
-need the aswer button / =
-
-need a + - * / 
-
-% button? THough does theres actually work?
--->
