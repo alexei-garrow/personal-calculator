@@ -16,4 +16,13 @@ function clr() {
   displayedNumber.value = '' //empty string not a number
 }
 
-function solve() {}
+function solve() {
+  //needs to use scope and apply eval to each dis / value press.
+  try {
+    displayedNumber.value = scope(displayedNumber.value)
+  } catch (e) {
+    displayedNumber.value = 'error no letters you fool!'
+  }
+}
+
+//try and do the typed letter function!
