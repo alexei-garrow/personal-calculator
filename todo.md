@@ -9,21 +9,35 @@ How to Safely Replace eval()
 The main goal of eval() in your code is to parse and evaluate mathematical expressions. A safer alternative is to write a simple parser or leverage JavaScript safely.
 Here’s how you can achieve this:
 ________________________________________
-~~1. Use the Function Constructor for Math Only
-The Function constructor can evaluate math expressions without executing arbitrary code:
-function safeEvaluate(expression) {
-  // Replace invalid characters (only allow numbers, operators, and decimals)
-  const sanitizedExpression = expression.replace(/[^0-9+\-*/().]/g, "");
-  try {
-    return Function(`"use strict"; return (${sanitizedExpression})`)();
-  } catch {
-    return "Error"; // Handle invalid expressions gracefully
-  }
-}
-Replace your solve() function with:
-function solve() {
-  displayedNumber.value = safeEvaluate(displayedNumber.value);
-}~~
+## ~~Use the Function Constructor for Math Only~~
+
+~~The Function constructor can evaluate math expressions without executing arbitrary code:~~
+
+~~function safeEvaluate(expression) {~~
+
+  ~~// Replace invalid characters (only allow numbers, operators, and decimals)~~
+  
+  ~~const sanitizedExpression = expression.replace(/[^0-9+\-*/().]/g, "");~~
+  
+  ~~try {~~
+  
+   ~~return Function(`"use strict"; return (${sanitizedExpression})`)();~~ 
+    
+  ~~} catch {~~
+  
+  ~~return "Error"; // Handle invalid expressions gracefully~~   //Found a strange indenting rule with crossing out..
+    
+  ~~}~~
+  
+~~}~~
+
+~~Replace your solve() function with:~~
+
+~~function solve() {~~
+
+  ~~displayedNumber.value = safeEvaluate(displayedNumber.value);~~
+  
+~~}~~
 
 -	Why This is Safer: 
 -	Only numbers, operators, and valid math symbols are allowed.
