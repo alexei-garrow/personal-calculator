@@ -1,6 +1,6 @@
 # Calculator
 
-Messing round with an exisiting project, changing it up, and learning about eval().
+Messing round with an exisiting project, changing it up, and learning about eval() and it's pitfalls! 
 
 HTML CSS & javaScript
 
