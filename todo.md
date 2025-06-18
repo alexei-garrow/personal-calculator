@@ -52,6 +52,7 @@ ________________________________________
 ## Implementing a Manual Parser
 
 For a learning opportunity, you can create your own math parser to handle basic operations:
+
 function evaluateExpression(expression) {
   // Match numbers and operators
   const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g);
@@ -71,8 +72,11 @@ ________________________________________
 ## Dynamic Display & Cache
 
 Your idea of showing the ongoing calculation and a cache of previous calculations is great! Here’s how to implement it:
-1. Displaying Ongoing Calculation
+
+### Displaying Ongoing Calculation
+
 You already have this functionality in your dis() function:
+
 function dis(value) {
   displayedNumber.value += value; // Appends value to the screen
 }
