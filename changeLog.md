@@ -19,3 +19,7 @@ Upon consulting copilot:
 
   - "If something goes wrong, debugging code that heavily relies on eval() can be much harder because the executed string is dynamic and not pre-parsed."
 
+## Changed the use of the function constructor for math only
+  ### Added:
+  - function safeEvaluate(expression) 
+  - incorpered this into our function solve() 
