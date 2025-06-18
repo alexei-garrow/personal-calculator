@@ -24,11 +24,14 @@ Replace your solve() function with:
 function solve() {
   displayedNumber.value = safeEvaluate(displayedNumber.value);
 }~~
-•	Why This is Safer: 
-o	Only numbers, operators, and valid math symbols are allowed.
-o	Malicious or unexpected strings like alert('Hacked!') are sanitized.
+
+-	Why This is Safer: 
+-	Only numbers, operators, and valid math symbols are allowed.
+-	Malicious or unexpected strings like alert('Hacked!') are sanitized.
 ________________________________________
-2. Using a Pre-built Library for Calculations
+
+## Using a Pre-built Library for Calculations
+
 To avoid building your own parser, you can use a library like mathjs, which is specifically designed for safely evaluating mathematical expressions:
 1.	Install mathjs using npm or include it via CDN: 
 2.	<script src="https://cdn.jsdelivr.net/npm/mathjs/lib/browser/math.min.js"></script>
@@ -40,11 +43,14 @@ To avoid building your own parser, you can use a library like mathjs, which is s
 8.	    displayedNumber.value = "Error";
 9.	  }
 10.	}
-•	Why Use a Library? 
-o	It supports more advanced operations (e.g., trigonometry, logarithms).
-o	It’s already optimized for safety and correctness.
+    
+### Why Use a Library?
+-	It supports more advanced operations (e.g., trigonometry, logarithms).
+-	It’s already optimized for safety and correctness.
 ________________________________________
-3. Implementing a Manual Parser
+
+## Implementing a Manual Parser
+
 For a learning opportunity, you can create your own math parser to handle basic operations:
 function evaluateExpression(expression) {
   // Match numbers and operators
@@ -59,9 +65,11 @@ function evaluateExpression(expression) {
     return "Error";
   }
 }
+
 This is more complex but gives you full control over how expressions are evaluated.
 ________________________________________
-Dynamic Display & Cache
+## Dynamic Display & Cache
+
 Your idea of showing the ongoing calculation and a cache of previous calculations is great! Here’s how to implement it:
 1. Displaying Ongoing Calculation
 You already have this functionality in your dis() function:
