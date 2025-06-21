@@ -1,20 +1,75 @@
-//use eval() so we don't do the calculations ourselves
-//Getting the string out of the calculator, displaying
-//going to need 2 variables
-//be able to type and or use the buttons.
 
 let displayedNumber = document.getElementById('result')
-let scope = eval
+//let scope = eval
 
-function safeEvaluate(expression) {
-  // Replace invalid characters (only allow numbers, operators, and decimals)
-  const sanitizedExpression = expression.replace(/[^0-9+\-*/().]/g, "");
+function performOperation(runningTotal, operator, modify){
+    if(operator === "+"){
+      return runningTotal + modify;
+    }else if(operator === "-"){
+      return runningTotal - modify;
+    }else if(operator === "*"){
+      return runningTotal * modify;
+    }else if(operator === "/"){
+      return runningTotal / modify;
+    }
+  }
+
+//For a learning opportunity, you can create your own math parser to handle basic operations:
+
+function evaluateExpression(expression) {
+  // Match numbers and operators
+  let runningTotal = null;
+  let modify = null;
+  let operator = "";
+  const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g); //technically a list / "array"
+  if (!tokens) return "Error";
+
   try {
-    return Function(`"use strict"; return (${sanitizedExpression})`)();
+    runningTotal = tokens[0]; //token[0] is a number token[1] is an operator
+
+    for(let i = 1; i < tokens.length; i++){
+      if(token[i] % 2 === 0){
+        modify = token[i];
+        //call the function
+      }else{
+        operator = token[i];
+      }
+    }
+
+    
+
+    
+    //if(expression.match === "+"){
+    //  return RunningTotal += modify}
+
+    //runningTotal modify  
+
+    //assuming first total = a number
+    //operator use the operator 
+    //else if - 
+    //
+
+
+
+    //bedmas () ^ ** / * + - 
+
+    // const orderOfOp = new Map();
+
+    // orderOfOp.set("(", ")", 1);
+    // orderOfOp.set("^","**", 2);
+    // orderOfOp.set("/","*", 3);
+
+
+    //match displayedNumber.value with exprrssion.match
+    //then perform the evaulation / operation 
+    
+
+    // Use a stack-based approach or shunting-yard algorithm (advanced but educational)
   } catch {
-    return "Error"; // Handle invalid expressions gracefully
+    return "Error";
   }
 }
+
 
 //appending to our current displayed number
 
@@ -26,19 +81,10 @@ function clr() {
   displayedNumber.value = '' //empty string not a number
 }
 
-// function solve() {
-//   //needs to use scope and apply eval to each dis / value press.
-//   try {
-//     displayedNumber.value = scope(displayedNumber.value)
-//   } catch (e) {
-//     displayedNumber.value = 'error no letters you fool!'
-//   }
-// }
 
 function solve() {
-  displayedNumber.value = safeEvaluate(displayedNumber.value);
+  displayedNumber.value = evaluateExpression(displayedNumber.value);
 }
 
 
-//try and do the typed letter function!
 
