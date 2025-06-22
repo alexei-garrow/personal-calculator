@@ -4,13 +4,13 @@ let displayedNumber = document.getElementById('result')
 
 function performOperation(runningTotal, operator, modify){
     if(operator === "+"){
-      return runningTotal + modify;
+      return Number(runningTotal) + Number(modify);
     }else if(operator === "-"){
-      return runningTotal - modify;
+      return Number(runningTotal) - Number(modify);
     }else if(operator === "*"){
-      return runningTotal * modify;
+      return Number(runningTotal) * Number(modify);
     }else if(operator === "/"){
-      return runningTotal / modify;
+      return Number(runningTotal) / Number(modify);
     }//else if(operator === "="){
     //   return runningTotal = modify;
     // }
@@ -31,7 +31,7 @@ function evaluateExpression(expression) {
 
 
     for(let i = 1; i < tokens.length; i++){
-      if(tokens[i] % 2 === 0){
+      if(i % 2 === 0){
         modify = tokens[i];
         runningTotal = performOperation(runningTotal, operator, modify);
       }else{
