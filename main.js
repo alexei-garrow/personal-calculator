@@ -11,9 +11,9 @@ function performOperation(runningTotal, operator, modify){
       return Number(runningTotal) * Number(modify);
     }else if(operator === "/"){
       return Number(runningTotal) / Number(modify);
-    }//else if(operator === "="){
-    //   return runningTotal = modify;
-    // }
+    }else if(operator === "^" || operator === "**"){
+       return Number(runningTotal) ** Number(modify);
+     }
   }
 
 //For a learning opportunity, you can create your own math parser to handle basic operations:
@@ -23,7 +23,7 @@ function evaluateExpression(expression) {
   let runningTotal = null;
   let modify = null;
   let operator = "";
-  const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g); //technically a list / js "array"
+  const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g); //technically a list / js "array" ?
   if (!tokens) return "Error";
 
   try {
