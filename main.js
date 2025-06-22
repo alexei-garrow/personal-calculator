@@ -11,7 +11,9 @@ function performOperation(runningTotal, operator, modify){
       return runningTotal * modify;
     }else if(operator === "/"){
       return runningTotal / modify;
-    }
+    }//else if(operator === "="){
+    //   return runningTotal = modify;
+    // }
   }
 
 //For a learning opportunity, you can create your own math parser to handle basic operations:
@@ -21,21 +23,22 @@ function evaluateExpression(expression) {
   let runningTotal = null;
   let modify = null;
   let operator = "";
-  const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g); //technically a list / "array"
+  const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g); //technically a list / js "array"
   if (!tokens) return "Error";
 
   try {
     runningTotal = tokens[0]; //token[0] is a number token[1] is an operator
 
+
     for(let i = 1; i < tokens.length; i++){
-      if(token[i] % 2 === 0){
-        modify = token[i];
-        //call the function
+      if(tokens[i] % 2 === 0){
+        modify = tokens[i];
+        runningTotal = performOperation(runningTotal, operator, modify);
       }else{
-        operator = token[i];
+        operator = tokens[i];
       }
     }
-
+    return runningTotal;
     
 
     
@@ -66,7 +69,7 @@ function evaluateExpression(expression) {
 
     // Use a stack-based approach or shunting-yard algorithm (advanced but educational)
   } catch {
-    return "Error";
+    return "Error hey";
   }
 }
 
