@@ -108,3 +108,32 @@ We are now ready for you to run the `git diff manual-parser` command. We will th
     3.  **The `cat` Command Saga**: We discussed why the `cat << 'EOF' >> filename` command was confusing and learned that it's a "here document" used for appending multiline text.
     4.  **Documenting the `Function` Constructor**: We've now updated `methods.md` to include a discussion of the `new Function()` method.
 - **Key Takeaway**: Documentation is an iterative process. It's okay to go back, correct mistakes, and add more detail as you learn more.
+
+---
+
+## Date: January 22, 2026
+
+### Topic: Deep Dive into the Parser\'s Logic
+
+We dug into the specifics of how the parser works and what its limitations are. This Q&A captures that discussion.
+
+#### How does `solve()` running `evaluateExpression()` actually work?
+
+This is a classic example of the **function call stack**:
+1.  An event (like clicking the `=` button) calls the `solve()` function.
+2.  `solve()` gets the expression string from the calculator screen.
+3.  `solve()` then calls `evaluateExpression()`, passing the string to it. At this point, `solve()` **pauses** and waits for a result.
+4.  `evaluateExpression()` runs its full logic (tokenizing, looping) and calculates a final number.
+5.  It uses the `return` keyword to send that final number back to `solve()`.
+6.  `solve()` receives the returned value and finishes its job by updating the calculator screen.
+
+#### What are the gaps and missing features?
+
+We identified several key limitations in this simple parser:
+
+*   **No Order of Operations (BODMAS/PEMDAS)**: This is the biggest gap. The parser evaluates strictly from left to right. An expression like `2+3*2` will be incorrectly calculated as `10` instead of `8`.
+*   **No Parentheses Support**: The parser tokenizes `(` and `)` but the loop logic doesn\'t know how to handle them, so it cannot prioritize calculations within parentheses.
+*   **No Unary Operator Support**: It cannot handle expressions starting with a negative number (e.g., `-5 + 10`) or operations with negative numbers (e.g., `5 * -2`).
+*   **No Floating-Point Precision Handling**: Like all JavaScript, it\'s susceptible to floating-point errors (e.g., `0.1 + 0.2` not being exactly `0.3`).
+
+This analysis is crucial for understanding the difference between a simple educational parser and a production-ready one.
