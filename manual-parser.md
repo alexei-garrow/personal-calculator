@@ -60,3 +60,27 @@ const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g);
         *   If the index `i` is **even** (2, 4, 6, ...), it assumes the token is a number (`modify`), and immediately calls the `performOperation` function with the stored `runningTotal`, `operator`, and the new `modify` number. The result is then saved back into `runningTotal`.
     4.  **Return**: After the loop finishes, the final `runningTotal` is returned.
 *   **Key Insight**: As you correctly deduced, this simple loop structure is what causes the calculator to evaluate expressions strictly from left to right, without considering the mathematical order of operations (BODMAS/PEMDAS).
+
+## Tying it all Together: `solve()` and `clr()`
+
+These functions connect our parser logic to the user's actions.
+
+### The `clr()` Function
+
+```javascript
+function clr() {
+  displayedNumber.value = ''
+}
+```
+*   **How it Works**: This function directly sets the value of the calculator's screen to an empty string.
+*   **Key Insight**: As you correctly deduced, this works by clearing the *source* of the tokens. The `tokens` array doesn't exist until `evaluateExpression` is called, so by clearing the display, you ensure that the next time `solve()` is triggered, there's nothing to parse.
+
+### The `solve()` Function & History
+
+```javascript
+function solve() {
+  displayedNumber.value = evaluateExpression(displayedNumber.value);
+}
+```
+*   **How it Works**: When the user hits the `=` button, this function is called. It reads the expression from the display, sends it to `evaluateExpression()` for calculation, and then updates the display with the returned result.
+*   **Storing vs. Using History**: Your implementation, `let lastEntry = runningTotal;`, successfully *stores* the last result in a variable. As you astutely noted, this is only the first half of the feature. The next challenge, which you can tackle next time, is to figure out how to *use* that stored value, for example, by creating an "Ans" button that appends the `lastEntry` value to the display.

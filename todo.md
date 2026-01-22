@@ -16,3 +16,5 @@ This is a list of potential features and improvements for the calculator. For a 
 ## UI/UX
 
 - [ ] Add more advanced styling or animations.
+- [ ] Implement an "Answer" (Ans) button to use the last result.
+- [ ] Implement a "Backspace" (Del) button to delete the last character.
