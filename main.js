@@ -1,6 +1,7 @@
 
 let displayedNumber = document.getElementById('result')
 //let scope = eval
+let lastEntry = null; //Would effecively be a integer / number, not an array with current implimentation
 
 function performOperation(runningTotal, operator, modify){
     if(operator === "+"){
@@ -38,6 +39,8 @@ function evaluateExpression(expression) {
         operator = tokens[i];
       }
     }
+    console.log(typeof runningTotal);
+    lastEntry = runningTotal;
     return runningTotal;
     
 
