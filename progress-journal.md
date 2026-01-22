@@ -45,3 +45,25 @@ This command is a powerful tool for fixing mistakes in your last commit. It lets
 *   `--no-edit`: This option tells Git to amend the commit without opening an editor to change the commit message.
 
 It's a great way to fix small mistakes before you push your changes to a remote repository like GitHub.
+
+---
+
+## Date: January 22, 2026
+
+### Topic: Comparing Git Branches
+
+Today, we started exploring how to compare different branches in Git, a crucial skill for understanding project evolution and collaborating effectively.
+
+### What We Did: Initial Branch Comparison
+
+1.  **Listing Branches**: We began by using `git branch -a` to list all local and remote branches. This helped us confirm the existence and names of the branches we wanted to compare (`pvt-colab` and `manual-parser`).
+    *   **Command**: `git branch -a`
+    *   **Purpose**: Shows all local branches (without `remotes/`) and all remote-tracking branches (starting with `remotes/`). This gives you a complete overview of your repository's branch structure.
+
+2.  **Introducing `git diff`**: We discussed using `git diff <branch1>..<branch2>` as the primary command to see the differences between two branches. This command highlights additions, deletions, and modifications to files and lines of code.
+    *   **Command**: `git diff manual-parser` (when on `pvt-colab` branch, this compares `pvt-colab` with `manual-parser`)
+    *   **Purpose**: Displays the line-by-line differences between the specified branches. Lines starting with `+` are additions, and lines starting with `-` are deletions. This is invaluable for understanding how code has evolved between different development paths.
+
+### Next Steps
+
+We are now ready for you to run the `git diff manual-parser` command. We will then analyze its output together to understand the specific code changes between your `pvt-colab` and `manual-parser` branches.
