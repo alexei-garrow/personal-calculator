@@ -363,3 +363,146 @@ Your evaluator can now loop through these in order.
 - How to build a full lexer like a real programming language
 
 Just tell me where you want to take it next.
+
+
+#How LLM's work?
+
+You’re circling a really interesting idea, and you’re not far off — but there’s a key distinction that makes LLMs very different from tokenizers in calculators or compilers.
+
+Let’s unpack it in a way that’s intuitive and grounded in how these systems actually behave.
+
+---
+
+# 🧩 **Short answer:**  
+**LLMs *do* use tokens, but not in the same way your calculator does.**
+
+Your calculator:
+- Takes a string  
+- Breaks it into meaningful chunks (tokens)  
+- Interprets those tokens with rules you wrote  
+
+An LLM:
+- Takes text  
+- Breaks it into tokens  
+- Uses those tokens as *statistical units* to predict the next token  
+
+So the *idea* of tokenizing is shared, but the *purpose* and *mechanics* are completely different.
+
+---
+
+# 🧠 **How LLM tokenization works (intuitive version)**
+
+When you type:
+
+```
+Is this how LLMs work?
+```
+
+The model doesn’t see characters or words.  
+It sees something like:
+
+```
+["Is", " this", " how", " LL", "Ms", " work", "?"]
+```
+
+These are **subword tokens** — pieces chosen because they compress language efficiently.
+
+Each token is mapped to a number, like:
+
+```
+Is → 1423
+ this → 201
+ how → 98
+ LL → 55012
+ Ms → 882
+ work → 77
+ ? → 29
+```
+
+The model then processes these numbers through a giant neural network and predicts the next token.
+
+It’s not interpreting meaning the way your calculator does.  
+It’s predicting patterns.
+
+---
+
+# 🧮 **Your calculator’s tokenizer vs an LLM tokenizer**
+
+| Feature | Your Calculator | LLM |
+|--------|------------------|-----|
+| Purpose | Understand math expressions | Compress text into learnable units |
+| Token types | Numbers, operators, parentheses | Subwords, punctuation, fragments |
+| Meaning | Tokens have semantic meaning | Tokens are statistical units |
+| Rules | You define them | Learned from massive text corpora |
+| Next step | Evaluate expression | Predict next token |
+
+So yes — both systems tokenize.  
+But they tokenize for *very different reasons*.
+
+---
+
+# 🧠 **Why LLMs don’t “parse” like your calculator**
+
+Your calculator has explicit rules:
+
+- `+` means addition  
+- `*` means multiplication  
+- Numbers must come in certain positions  
+
+LLMs don’t have rules like that.
+
+They learn patterns like:
+
+- “If someone says ‘How are’, the next token is often ‘ you’.”
+- “If someone writes code, indentation often follows.”
+- “If someone asks about regex, they might ask about parsing next.”
+
+It’s pattern prediction, not symbolic reasoning.
+
+---
+
+# 🧩 **Where the similarity *does* exist**
+
+Both systems:
+
+- Break text into tokens  
+- Process tokens in sequence  
+- Use tokens to understand structure  
+
+But the *kind* of understanding is different.
+
+Your calculator:
+> “This is a number. This is an operator. Apply rule X.”
+
+An LLM:
+> “Given the last 200 tokens, what token statistically comes next?”
+
+---
+
+# 🧭 **Why this matters for your learning**
+
+You’re building a calculator parser.  
+That’s symbolic reasoning.
+
+LLMs operate on statistical reasoning.
+
+Understanding both gives you a powerful mental model for:
+
+- Programming languages  
+- Game scripting  
+- Dialogue systems  
+- AI behavior  
+- Natural language processing  
+
+And it’s exactly the kind of thinking that will help you build your merchant‑caravan game later.
+
+---
+
+If you want, we can go deeper into:
+
+- How tokenization algorithms like BPE or WordPiece work  
+- How LLMs represent meaning in vectors  
+- How attention mechanisms process tokens  
+- How this differs from traditional parsers and compilers  
+
+Just tell me where you want to take it.
