@@ -28,7 +28,7 @@ function evaluateExpression(expression) {
   if (!tokens) return "Error";
 
   try {
-    runningTotal = tokens[0]; //token[0] is a number token[1] is an operator
+    runningTotal = Number(tokens[0]); //token[0] is a number token[1] is an operator
 
 
     for(let i = 1; i < tokens.length; i++){
