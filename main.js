@@ -25,7 +25,8 @@ function evaluateExpression(expression) {
   let modify = null;
   let operator = "";
   const tokens = expression.match(/[+\-*/()]|\d+(\.\d+)?/g); //technically a list / js "array" ?
-  if (!tokens) return "Error";
+  if (!tokens) return "Error"; //nothing matched
+  if (isNaN(tokens[0])) return "Error"; // first token isn’t a number think + 5 or something. so a token, but not in the correct order
 
   try {
     runningTotal = Number(tokens[0]); //token[0] is a number token[1] is an operator
