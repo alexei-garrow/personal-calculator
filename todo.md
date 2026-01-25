@@ -18,3 +18,12 @@ This is a list of potential features and improvements for the calculator. For a 
 - [ ] Add more advanced styling or animations.
 - [ ] Implement an "Answer" (Ans) button to use the last result.
 - [ ] Implement a "Backspace" (Del) button to delete the last character.
+
+Option A — Add operator precedence (BEDMAS)
+A two‑pass evaluator is a great next step.
+Option B — Add parentheses
+This introduces recursion in a gentle way.
+Option C — Support multi‑character operators (**)
+This means upgrading your tokenizer.
+Option D — Add keyboard support
+Makes the calculator feel real.
