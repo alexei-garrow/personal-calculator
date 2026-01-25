@@ -52,7 +52,7 @@ function evaluateExpression(expression) {
         operator = tokens[i];
       }
     }
-    console.log(typeof runningTotal);
+    //console.log(typeof runningTotal);
     lastEntry = runningTotal;
     return runningTotal;
     
