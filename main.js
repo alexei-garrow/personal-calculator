@@ -35,6 +35,11 @@ function evaluateExpression(expression) {
     for(let i = 1; i < tokens.length; i++){
       if(i % 2 === 0){
         modify = tokens[i];
+
+         if (operator === "/" && Number(modify) === 0) {
+        return "Error";
+        }//Check for divide by 0
+
         runningTotal = performOperation(runningTotal, operator, modify);
       }else{
         operator = tokens[i];
