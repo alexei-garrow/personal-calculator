@@ -40,6 +40,13 @@ function evaluateExpression(expression) {
         return "Error";
         }//Check for divide by 0
 
+        /*Why here?
+        - You only know the operator and the next number (modify) at this moment.
+        - You want to stop before performing the invalid operation.
+        - It belongs inside the try block because it’s part of evaluation logic.
+        This is exactly how real interpreters handle runtime errors.
+        */
+
         runningTotal = performOperation(runningTotal, operator, modify);
       }else{
         operator = tokens[i];
