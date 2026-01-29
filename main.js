@@ -34,7 +34,7 @@ function evaluateExpression(expression) {
 
     for(let i = 1; i < tokens.length; i++){
       if(i % 2 === 0){
-        modify = tokens[i];
+        modify = Number(tokens[i]);
 
          if (operator === "/" && Number(modify) === 0) {
         return "Error";
@@ -91,7 +91,7 @@ function evaluateExpression(expression) {
 
 
 function backspace() {
-  displayedNumber.value = value.slice();
+  displayedNumber.value = displayedNumber.value.slice(0, -1);
 }
 
 //appending to our current displayed number

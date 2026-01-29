@@ -236,3 +236,175 @@ In JavaScript, trying to access an array index that doesn't exist gives you the 
 Does this distinction between the array's length and its highest index make sense? It's a very common point of confusion when learning to code.
 
 **User:** oh is this like we start at 1, but the array still goes from the length including the 10!! I see so it can't match 5 as 5, because we only need to get through 4 parts of the array
+### 
+`String.prototype.slice()`
+
+* 
+`slice(startIndex, endIndex)`: Extracts a section of a string and returns it as a new string.
+* 
+**Key Feature for Backspace:** It can take negative arguments.
+    * 
+`str.slice(0, -1)`: This is very intuitive. It means "start from the beginning (index 0) and go up to, but not including, the last character (index -1)". This effectively removes the last character.
+
+### 
+`String.prototype.substring()`
+
+* 
+`substring(startIndex, endIndex)`: Also extracts characters between two indices.
+* 
+**Key Difference:** It does *not* accept negative indices. If you pass a negative number, it treats it as 0.
+    * 
+`str.substring(0, str.length - 1)`: This achieves the same result as 
+`slice(0, -1)
+. You explicitly calculate the index of the second-to-last character (
+`str.length - 1`
+) and tell 
+`substring`
+ to go up to that point from the beginning.
+
+### Why 
+`slice(0, -1)`
+ is often preferred for backspace:
+
+It's generally considered more concise and readable for the specific operation of "removing the last N characters" because of the negative index feature. You don't have to explicitly calculate 
+`str.length - 1`
+.
+
+Both will work perfectly fine for your 
+`backspace`
+ functionality!
+
+**Now, knowing this, how would you write the 
+`backspace()`
+ function, including where you would place it in 
+`main.js`
+ and how you would call it from 
+`index.html`
+?**
+
+**User:** Oh really cool! Is it the same for Arrays in js array.slice or something? Also how does it work under the hood? How could we create our own slice() method? I'm assuming something like looping through the displaynumber.value then storing each character except the last in a new variable that we make the new display value or something? Maybe I'll have a go and you can show me! :) For backspace() I'd put it above function dis()  so function backspace() { displayNumber.value = value.slice(0, -1); }
+
+**AI Tutor:** These are fantastic questions! It shows you're thinking like a programmer—not just *what* a tool does, but *how* it does it and where else you can use it.
+
+Let's start with your proposed 
+`backspace()`
+ function. You are so close!
+
+```javascript
+function backspace() {
+  displayNumber.value = value.slice(0, -1); 
+}
+```
+
+There's one small bug here. The 
+`slice()`
+ method needs to be called on the string you want to change. In this case, where is the string that holds the calculator's display text? (Hint: you're assigning the result back to it).
+
+---
+
+
+### Does 
+`slice()`
+ work on arrays?
+
+Yes! And it works in a very similar way. 
+`Array.prototype.slice()`
+ is used to create a "shallow copy" of a portion of an array. It also accepts negative indices. For example:
+
+```javascript
+let myArray = [10, 20, 30, 40, 50];
+let newArray = myArray.slice(0, -1); // newArray is now [10, 20, 30, 40]
+```
+
+It's one of the most common ways to create a new array without modifying the original one.
+
+---
+
+
+### How could we create our own 
+`slice()`
+?
+
+You are exactly right in your thinking!
+
+1.  Create a new, empty string (let's call it 
+`result`
+).
+2.  Loop through the characters of the original string from the first character up to (but not including) the last one.
+3.  In each loop iteration, append the current character to your 
+`result`
+ string.
+4.  After the loop, return the 
+`result`
+.
+
+That's a fantastic impulse. Trying to rebuild a standard function from scratch is one of the best ways to truly understand it.
+
+**For now, let's fix that one small bug in your 
+`backspace()`
+ function. What do you think 
+`value`
+ should be replaced with?**
+
+**User:** oh displayedNumber.value = displayedNumber.value.slaice(0, -1); ?
+
+**AI Tutor:** **Bingo! You've got it.**
+
+That's the correct way to implement the 
+`backspace()`
+ function. It takes the current string value from the display, slices off the last character, and then updates the display with the shorter string.
+
+```javascript
+function backspace() {
+  displayNumber.value = displayedNumber.value.slice(0, -1); 
+}
+```
+
+Now that you have the function, the next step is to integrate it into your calculator's user interface.
+
+**Where in your 
+`index.html`
+ file do you think the backspace button should go, and what would its 
+`onclick`
+ attribute look like?**
+
+**User:** Ok cool! Can I ask what would happen with my first guess? Also let's keep documenting our conversations perhaps an update to the learning jounrals could be good too.
+
+**AI Tutor:** Excellent questions. Let's clarify your first 
+`backspace()`
+ guess.
+
+### What would have happened with your first guess?
+
+```javascript
+function backspace() {
+  displayNumber.value = value.slice(0, -1); 
+}
+```
+
+If you had run this code, you would have encountered a **
+`ReferenceError: value is not defined`**.
+
+Here's why:
+
+1.  Inside the 
+`backspace()`
+ function, 
+`value`
+ was not declared as a variable, nor was it passed as an argument.
+2.  The JavaScript engine wouldn't know what 
+`value`
+ refers to. It needs to know which string to 
+`slice()`
+.
+3.  
+`displayedNumber.value`
+ is where the string you want to modify is actually stored. By trying to call 
+`.slice()`
+ on an undefined 
+`value`
+, the operation would fail before it even started.
+
+So, while your *intent* was correct (to slice the display's value), the specific variable name 
+`value`
+ was out of scope for the function.
