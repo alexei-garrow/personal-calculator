@@ -90,6 +90,10 @@ function evaluateExpression(expression) {
 }
 
 
+function backspace() {
+  displayedNumber.value = value.slice();
+}
+
 //appending to our current displayed number
 
 function dis(value) {
