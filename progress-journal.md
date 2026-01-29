@@ -164,3 +164,15 @@ This analysis is crucial for understanding the difference between a simple educa
 - **Researched JavaScript string methods** and selected `slice()` for implementing the backspace functionality.
 - **Successfully defined the `backspace()` JavaScript function**.
 - **Next step**: Integrating the `backspace` button into the `index.html` file.
+
+---
+
+## Date: January 29, 2026
+
+### Topic: CSS Layout Refinement (Full-Width Screen)
+
+-   **Continued problem-solving** focusing on refining the calculator's layout.
+-   **Addressed HTML `colspan` issue:** Corrected `colspan="100%"` to the standards-compliant `colspan="4"` for the display input, ensuring it spans the full width of the table.
+-   **Implemented CSS `width: 100%`**: Applied `width: 100%` to the `input[type='text']` element to make it fill its container.
+-   **Introduced and explained `box-sizing: border-box;`**: Provided a detailed explanation of `box-sizing: border-box;` to correctly account for padding and borders within the element's defined width, resolving potential layout overflow issues.
+-   **Emphasized standards compliance**: Discussed why adhering to HTML standards (e.g., `colspan` as an integer) is crucial for predictable and robust layouts, even if browsers might be lenient with non-standard values.

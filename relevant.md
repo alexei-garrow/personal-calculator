@@ -407,4 +407,51 @@ Here's why:
 
 So, while your *intent* was correct (to slice the display's value), the specific variable name 
 `value`
- was out of scope for the function.
+ was out of scope for the function.### Problem-Solving: CSS Layout and `box-sizing`
+
+**AI Tutor:** Okay, I've checked `main.css` and it seems unchanged.
+
+You were on the right track suspecting a padding or sizing issue, but the root cause is a combination of two things: one in your HTML and one in your CSS.
+
+### 1. The HTML `colspan` Attribute
+
+The `colspan="100%"` is the first issue. It needs to be the number of columns, which is 4.
+
+**Proposed Change for `index.html`:**
+
+```html
+<!-- In index.html -->
+<tr>
+  <td colspan="4"><input type="text" id="result" /></td>
+</tr>
+```
+
+However, if you only make this change, the input field still won't stretch to fill the full width. That's because of the second issue in the CSS.
+
+### 2. The CSS `width` and `box-sizing` Properties
+
+Right now, your `input[type='text']` has no `width` property, so it just sizes itself based on its content. We need to tell it to take up 100% of the width of its container (the `<td>` that spans 4 columns).
+
+But if we just add `width: 100%`, we'll have a new problem. By default, CSS adds `padding` and `border` *outside* of the `width`. So the total width would be `100% + 40px padding + 4px border`, which would make it overflow the table.
+
+The solution is a crucial CSS property: `box-sizing: border-box;`. This tells the browser to include `padding` and `border` *inside* the `width`, so the input field's total width will be exactly 100% of the cell, and the padding will be contained within it.
+
+**Proposed Changes for `main.css`:**
+
+```css
+/* In main.css */
+input[type='text'] {
+  width: 100%; /* Make the input fill its container */
+  box-sizing: border-box; /* Include padding and border in the width */
+  padding: 20px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid white;
+  background-color: #333333;
+  color: white;
+}
+```
+
+This `box-sizing: border-box;` concept is one of the most important fundamentals of modern CSS.
