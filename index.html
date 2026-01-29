@@ -10,10 +10,7 @@
     <div class="main">
       <table id="calcu">
         <tr>
-          <td colspan="2"><input type="text" id="result" /></td>
-          <td><input type="button" value="<-" onclick="backspace()" /></td>
-          <td><input type="button" value="^" onclick="dis('^')" onkeydown="myFunction(event)" /></td>
-          <td><input type="button" value="AC" onclick="clr()" /></td>
+          <td colspan="4"><input type="text" id="result" /></td>
         </tr>
         <tr>
           <td>
@@ -143,6 +140,11 @@
               onkeydown="myFunction(event)"
             />
           </td>
+        </tr>
+        <tr>
+          <td><input type="button" value="AC" onclick="clr()" /></td>
+          <td><input type="button" value="<-" onclick="backspace()" /></td>
+          <td><input type="button" value="^" onclick="dis('^')" onkeydown="myFunction(event)" /></td>
         </tr>
       </table>
     </div>

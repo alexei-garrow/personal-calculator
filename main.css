@@ -45,3 +45,16 @@ input[type='text'] {
   background-color: #333333;
   color: white;
 }
+
+ input[type='text'] {
+  width: 100%; /* Make the input fill its container */
+  box-sizing: border-box; /* Include padding and border in the width */
+  padding: 20px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid white;
+  background-color: #333333;
+  color: white;
+}
